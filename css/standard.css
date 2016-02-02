@@ -1,0 +1,254 @@
+/* styles written in this file is for Standard */
+
+
+.clearfix:after{
+	content:		".";
+	display:		block;
+	visibility:		hidden;
+	height:			0.1px;
+	font-size:		0.1em;
+	line-height:		0;
+	clear:			both;
+}
+
+.clearfix{
+	zoom:			100%;
+}
+
+
+*{
+	margin:			0;
+	padding:		0;
+}
+
+html{
+	font-size:		62.5%;
+}
+
+body{
+	font-family:		'微软雅黑','Microsoft YaHei',sans-serif,Helvetica,Arial;
+	font-size:		16px;
+	font-size:		1.6rem;
+	line-height:		1.6;
+	background:		rgba(238,238,238,1);
+	color:			#333;
+	text-shadow:		1px 1px 1px #fff;
+	-webkit-text-size-adjust: none;
+}
+
+#wrapper{
+	
+}
+
+.bgswitcher{
+	background-position:	center center !important;
+	background-size:	cover !important;
+}
+
+#teaser{
+	position:		fixed;
+	top:			0;
+	left:			0;
+	//z-index:		9999;
+	width:			100%;
+	height:			100%;
+}
+
+
+#teaser .lbx{
+	display:		block;
+	color:			#fff;
+	text-decoration:	none;
+}
+
+#teaser .button{
+	position:		fixed;
+	top:			50%;
+	left:			50%;
+	margin:			-75px 0 0 -40px;
+	color:			#fff;
+	text-shadow:		1px 1px 1px #000;
+	text-align:		center;
+	//animation:		bounce 1s infinite ease;
+	//cursor:			pointer;
+}
+
+#teaser .button p{
+	margin:			10px auto;
+}
+
+
+#teaser .button .year{
+	padding:		5px 0;
+}
+
+#teaser .button .nosee{
+	margin:			0;
+	font-size:		40px;
+	font-size:		4rem;
+	line-height:		1;
+}
+
+#teaser .button .noseetxt{
+	margin-top:		0;
+	font-size:		12px;
+	font-size:		1.2rem;
+}
+
+#teaser .button .cs{
+	position:		relative;
+	margin-top:		-50px;
+	line-height:		1.2;
+}
+
+#teaser .button .cs span{
+	font-size:		80px;
+	font-size:		8rem;
+}
+
+
+#teaser .button.ani{
+	animation:		bounce 0.3s ease-in-out;
+}
+
+
+@keyframes bounce {
+	0%, 100% {transform: scale(1,1);}
+	20% {transform: scale(1.1,1.1);}
+	70% {transform: scale(0.8,0.8);}
+	80% {transform: scale(1,1);}
+	90% {transform: scale(0.9,0.9);}
+}
+
+
+
+#lb{
+	display:		none;
+	width:			350px;
+	height:			270px;
+	background:		url(../img/red_bg.png) no-repeat center center;
+	text-shadow:		none;
+}
+
+#lb p{
+	line-height:		1;
+	color:			#FCE8B5;
+	text-align:		center;
+}
+
+#lb .money{
+	padding-top:		75px;
+	margin-bottom:		20px;
+	font-size:		50px;
+	font-size:		5rem;
+}
+
+#lb .money span.pay{
+	display:		none;
+	font-size:		20px;
+	font-size:		2rem;
+}
+
+#lb .money span.unit{
+	font-size:		20px;
+	font-size:		2rem;
+}
+
+#lb .txt{
+	margin-bottom:		38px;
+	font-size:		20px;
+	font-size:		2rem;
+}
+
+#lb .txt2{
+	display:		none;
+	margin-bottom:		10px;
+	font-size:		16px;
+	font-size:		1.6rem;
+}
+
+#lb ul{
+	display:		none;
+	list-style:		none;
+	width:			280px;
+	margin:			0 auto 5px;
+}
+
+#lb ul li{
+	width:			120px;
+	font-size:		14px;
+	font-size:		1.4rem;
+	color:			#FCE8B5;
+	text-align:		center;
+}
+
+#lb ul li:first-child{
+	float:			left;
+}
+
+#lb ul li:last-child{
+	float:			right;
+}
+
+#lb .btn{
+	width:			310px;
+	margin:			0 auto;
+}
+
+#lb .btn span{
+	display:		block;
+	background:		#FCE8B5;
+	border-radius:		5px;
+	padding:		15px 0;
+	font-size:		20px;
+	font-size:		2rem;
+	color:			#E24943;
+	text-decoration:	none;
+	cursor:			pointer;
+}
+
+#lb .btn img{
+	vertical-align:		top;
+}
+
+
+#lb.face2 .money{
+	padding-top:		20px;
+	margin-bottom:		5px;
+	font-size:		30px;
+	font-size:		3rem;
+}
+
+#lb.face2 .money span.pay{
+	display:		inline;
+	font-size:		12px;
+	font-size:		1.2rem;
+}
+
+#lb.face2 .money span.unit{
+	font-size:		12px;
+	font-size:		1.2rem;
+}
+
+#lb.face2 .txt{
+	display:		none;
+}
+
+#lb.face2 .txt2{
+	display:		block;
+}
+
+#lb.face2 ul{
+	display:		block;
+}
+
+#lb.face2 .btn{
+	display:		none;
+}
+
+
+
+
+
+
+
