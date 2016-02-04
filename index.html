@@ -206,6 +206,27 @@
 		var desc='发的是孤单，看的是寂寞';
 		var logoUrl = 'http://red.jekyllhy.de/img/icon_share.png';
 			//h5分享
+	wechatshare(shareurl,title,desc,logoUrl,function(){
+			$(".shareed").hide();
+			$("#mask").hide();
+		});
+		$(".share").click(function() {
+			$("#mask").show();
+			$(".shareed").show();
+		});
+		$("#mask").click(function() {
+			$("#mask").hide();
+			$(".shareed").hide();
+		}); 
+		$(".shareed").click(function() {
+			$("#mask").hide();
+			$(".shareed").hide();
+		});
+		//替换链接参数mserial
+		var mserial = $("#mserial").val();
+		var paramMserial = getUrlParam("mserial");
+		if(mserial != paramMserial){
+			location.href=shareurl;
 		}
 	});
 	function shareSuccessCallBack(){
