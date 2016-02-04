@@ -54,6 +54,167 @@
 </div>
 
 <script type="text/javascript" src="js/ga.js"></script>
+
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<script>
+	function getUrlParam(name) {
+		// 构造一个含有目标参数的正则表达式对象
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		// 匹配目标参数
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null)
+			return unescape(r[2]);
+		
+		return null; // 返回参数值
+	}
+	
+	function go(){
+		$.ajax({
+			url : "http://red.jekyllhy.de/",
+			cache : false,
+			type : "POST",
+			data : {
+				"serial" : $("#serial").val()
+			},
+			dataType : "json",
+			error : function() {
+				console.log("error");
+			},
+			success : function(data) {
+				if(data.msg==200||data.msg=="200"){
+					$(".forReceive").addClass("receive")
+
+				}
+			}
+		})
+	}
+	$('.forReceive').click(function(){
+		go();
+	})
+	wechatshare = function(shareUrl,title,desc,logoUrl,callback){
+		/*shareUrl	分享链接
+		title 分享标题
+		desc	分享内容
+		logoUrl 分享的图标url*/
+		 
+		var timestamp;
+		 var nonceStr;
+		 var signature;
+		 
+		 
+		 $.ajax({
+			 url : "http://red.jekyllhy.de/",
+		     type : "get",
+		     dataType:"json",
+		     error : function() { 
+		     },
+		     success : function(data) { 
+		     	timestamp = data.timestamp;
+		     	nonceStr = data.nonceStr;
+		     	signature = data.signature;
+		     	 
+		     	wx.config({
+		     	    debug: false,
+		     	    appId: 'wxa4315bcce0703460',
+		     	    timestamp: timestamp,
+		     	    nonceStr: nonceStr,
+		     	    signature: signature,
+		     	    jsApiList: [
+		     	      'checkJsApi',
+		     	      'onMenuShareTimeline',
+		     	      'onMenuShareAppMessage',
+		     	      'onMenuShareQQ',
+		     	      'onMenuShareWeibo' 
+		     	    ]
+		     	});
+		     	
+		     	wx.ready(function () {
+		     		iswechat = true;
+		     		
+		     		    wx.onMenuShareAppMessage({
+		     			      title: title,
+		     			      desc: desc,
+		     			      link: shareUrl,
+		     			      imgUrl: logoUrl,
+		     			      trigger: function (res) { 
+		     			       // alert('用户点击发送给朋友');
+		     			      },
+		     			      success: function (res) {
+		     			    	 shareSuccessCallBack();
+		     			      },
+		     			      cancel: function (res) {
+		     			        //alert('已取消');
+		     			      },
+		     			      fail: function (res) {
+		     			       // alert(JSON.stringify(res));
+		     			      }
+		     			    });
+		     			    
+				 		wx.onMenuShareTimeline({
+				 		    title: title, // 分享标题
+				 		    link: shareUrl, // 分享链接
+				 		    imgUrl: logoUrl, // 分享图标
+				 		    success: function () { 
+				 			// 用户确认分享后执行的回调函数
+				 		    	shareSuccessCallBack();
+				 		    },
+				 		    cancel: function () { 
+				 			// 用户取消分享后执行的回调函数
+				 		    }
+				 		});
+				 		
+				 		wx.onMenuShareQQ({
+				 		   title: title, // 分享标题
+				 		   desc: desc, // 分享描述
+				 		   link: shareUrl, // 分享链接
+				 		   imgUrl: logoUrl, // 分享图标
+				 		   success: function () { 
+				 		      // 用户确认分享后执行的回调函数
+				 			  shareSuccessCallBack();
+				 		   },
+				 		   cancel: function () { 
+				 		      // 用户取消分享后执行的回调函数
+				 		   }
+				 	       });
+				 		
+				 		
+				 		wx.onMenuShareWeibo({
+				 		   title: title, // 分享标题
+				 		   desc: desc, // 分享描述
+				 		   link: shareUrl, // 分享链接
+				 		   imgUrl: logoUrl, // 分享图标
+				 		   success: function () { 
+				 		      // 用户确认分享后执行的回调函数
+				 			  shareSuccessCallBack();
+				 		   },
+				 		   cancel: function () { 
+				 		      // 用户取消分享后执行的回调函数
+				 		   }
+				 	       });
+				     	});
+				     	
+				     },
+				     beforeSend : function() {
+				     }
+				 });
+				
+			}
+	$(function(){
+		var shareurl='http://red.jekyllhy.de/';
+		var title='发红包，看照片';
+		var desc='发的是孤单，看的是寂寞';
+		var logoUrl = 'http://red.jekyllhy.de/img/icon_share.png';
+			//h5分享
+		}
+	});
+	function shareSuccessCallBack(){
+		$.ajax({
+			url : "http://red.jekyllhy.de/"
+			}
+		})
+	}
+</script>
 </body>
 
 </html>
